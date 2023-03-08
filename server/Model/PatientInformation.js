@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 //create schema to hold structuring of content
 const Schema = mongoose.Schema;
 
-const PatientShema = new Schema({
+const PatientSchema = new Schema({
     Name:{
         type: String,
         require: true,
@@ -18,11 +18,11 @@ const PatientShema = new Schema({
     Patient_ID:{
         type: String,
         require: true,
-    }
-    Health_History:{
+    },
+    health_history:{
         type: String,
         require: true,
     }
 });
 
-modue.exports = mongoose.model("PatientInformation", PatientShema);
+modue.exports = mongoose.model("PatientInformation", PatientSchema);
