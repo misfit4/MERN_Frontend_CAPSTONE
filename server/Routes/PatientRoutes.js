@@ -2,25 +2,25 @@ const express = require("express");
 //utilize router to navigate urls
 const router = express.Router();
 //bring in schema to structure json information
-const Car = require("../Model/VehicleInformation");
+const Patient = require("../Model/PatientInformation");
 // require functionality from controllers to give router their behavior
-const carControllers = require("../Controllers/car-controllers");
+const patientControllers = require("../Controllers/PatientControllers");
 
 // assign functionality to urls and assign unique identifier in url
 
 //localhost:3001/cars/get
-router.get("/get", carControllers.getAllCars);
+router.get("/", patientControllers.getAllPatients);
 
 //localhost:3001/cars/update
-router.post("/update", carControllers.addCar);
+router.post("/", patientControllers.addPatient);
 
 //localhost:3001/cars/get/:id
-router.get("/get/:id", carControllers.getByID);
+router.get("/:id", patientControllers.getByID);
 
 //localhost:3001/cars/update/:id
-router.put("/update/:id", carControllers.updateCar);
+router.put("/:id", patientControllers.updatePatient);
 
 //localhost:3001/cars/:id
-router.delete("/delete/:id", carControllers.deleteCar);
+router.delete("/:id", patientControllers.deletePatient);
 
 module.exports = router;

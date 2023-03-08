@@ -7,7 +7,7 @@ const getAllPatients = async (req,res,next) =>{
     }catch(err){
         console.log(err);
     }
-    if(!cars){
+    if(!patients){
         //display negative http status if DB is empty
         return res.status(404).json({message:"No patients found"})
     }
@@ -33,9 +33,9 @@ const getByID = async (req,res,next) =>{
 //add a vehicle to DB
 const addPatient = async (req,res,next) =>{
     const{Name, DOB, insurance_provider, patient_ID, health_history} = req.body;
-    let vehicle;
+    let patient;
     try{
-        vehicle = new Patient({
+        patient = new Patient({
             Name,
             DOB,
             insurance_provider,
@@ -59,14 +59,14 @@ const updatePatient = async (req,res,next) =>{
     const {Name, DOB, insurance_provider, patient_ID, health_history} = req.body;
     let patient;
     try{
-        patient = await Car.findByIDAndUpdate(id,{
+        patient = await Patient.findByIdAndUpdate(id,{
             Name,
             DOB,
             insurance_provider,
             patient_ID,
             health_history
         });
-        patient = await car.save();
+        patient = await patient.save();
     }
     catch(err){
         console.log(err);
@@ -83,7 +83,7 @@ const deletePatient = async (req,res,next) =>{
     const id = req.params.id;
     let patient;
     try{
-        patient = await Patient.findByIDAndRemove(id);
+        patient = await Patient.findByIdAndRemove(id);
     }catch(err){
         console.log(err);
 

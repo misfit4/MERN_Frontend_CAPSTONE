@@ -16,7 +16,7 @@ const PatientSchema = new Schema({
         require: true,
     },
     Patient_ID:{
-        type: String,
+        type: Number,
         require: true,
     },
     health_history:{
@@ -25,4 +25,4 @@ const PatientSchema = new Schema({
     }
 });
 
-modue.exports = mongoose.model("PatientInformation", PatientSchema);
+module.exports = mongoose.model("PatientInformation", PatientSchema);
