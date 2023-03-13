@@ -33,7 +33,7 @@ const sendRequest = async () => {
     };
 const handleSubmit = (e) => {
       e.preventDefault();
-      sendRequest().then(() => history("/patient"));
+      sendRequest().then(() => history("/patients"));
     };
     const handleChange = (e) => {
       setInputs((prevState) => ({

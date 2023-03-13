@@ -21,7 +21,7 @@ const Header = () => {
             onChange={(e, val) => setValue(val)}
           >
             <Tab LinkComponent={NavLink} to="/add" label="Add New Patient" />
-            <Tab LinkComponent={NavLink} to="/patient" label="Patient Information" />
+            <Tab LinkComponent={NavLink} to="/patients" label="Patient Information" />
             <Tab LinkComponent={NavLink} to="/about" label="About Cape Health" />
           </Tabs>
         </Toolbar>
