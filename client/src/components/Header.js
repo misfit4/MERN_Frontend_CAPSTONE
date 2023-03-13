@@ -1,4 +1,3 @@
-content for header.js:
 import React, { useState } from "react";
 import { AppBar, Tab, Tabs, Toolbar, Typography } from "@mui/material";
 import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
@@ -21,9 +20,9 @@ const Header = () => {
             value={value}
             onChange={(e, val) => setValue(val)}
           >
-            <Tab LinkComponent={NavLink} to="/add" label="Add Patient" />
+            <Tab LinkComponent={NavLink} to="/add" label="Add New Patient" />
             <Tab LinkComponent={NavLink} to="/patient" label="Patient Information" />
-            <Tab LinkComponent={NavLink} to="/about" label="About MERN Health" />
+            <Tab LinkComponent={NavLink} to="/about" label="About Cape Health" />
           </Tabs>
         </Toolbar>
       </AppBar>

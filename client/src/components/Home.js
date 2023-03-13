@@ -1,19 +1,11 @@
-import { Button, Typography, Box } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import hospital from "../images/R12.jpg"
+import "./Home.css"
 const Home = () => {
   return (
     <div>
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <Button
-          LinkComponent={Link}
-          to="/patient"
-          sx={{ marginTop: 15, background: "blue" }}
-          variant="contained"
-        >
-          <Typography variant="h3">View Patient Information</Typography>
-        </Button>
-      </Box>
+     <h1>Cape Medical Center</h1>
+     <img src={hospital} alt="hospital"></img>
     </div>
   );
 };

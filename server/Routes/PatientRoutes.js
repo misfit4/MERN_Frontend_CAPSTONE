@@ -2,7 +2,6 @@ const express = require("express");
 //utilize router to navigate urls
 const router = express.Router();
 //bring in schema to structure json information
-const Patient = require("../Model/PatientInformation");
 // require functionality from controllers to give router their behavior
 const patientControllers = require("../Controllers/PatientControllers");
 

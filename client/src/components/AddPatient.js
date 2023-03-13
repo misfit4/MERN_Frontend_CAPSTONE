@@ -14,8 +14,9 @@ const AddPatient = () => {
     const [inputs, setInputs] = useState({
       name: "",
       dob: "",
-      patient_id: "",
-      insurance: "",
+      insurance_carrier:"",
+      patient_ID: "",
+      health_history: "",
     });
     const [checked, setChecked] = useState(false);
     const handleChange = (e) => {
@@ -26,19 +27,19 @@ const AddPatient = () => {
     };
 const sendRequest = async () => {
       await axios
-        .post("http://localhost:3002/patient", {
+        .post("http://localhost:3002/patients", {
             name: String(inputs.name),
             dob: String(inputs.dob),
-            patient_id: Number(inputs.patient_id),
-            insurance: String(inputs.insurance),
-            discharged: Boolean(checked),
+            insurance_carrier: String(inputs.insurance_carrier),
+            patient_ID: Number(inputs.patient_ID),
+            health_history: String(inputs.health_history),
         })
         .then((res) => res.data);
     };
 const handleSubmit = (e) => {
       e.preventDefault();
       console.log(inputs, checked);
-      sendRequest().then(() => history("/patient"));
+      sendRequest().then(() => history("/patients"));
     };
 return (
       <form onSubmit={handleSubmit}>
@@ -52,7 +53,8 @@ return (
           marginLeft={"auto"}
           marginRight="auto"
           marginTop={10}
->
+          >
+          
           <FormLabel>Name:</FormLabel>
           <TextField
             value={inputs.name}
@@ -62,7 +64,7 @@ return (
             variant="outlined"
             name="name"
           />
-<FormLabel>Date of Birth:</FormLabel>
+          <FormLabel>DOB:</FormLabel>
           <TextField
             value={inputs.dob}
             onChange={handleChange}
@@ -71,24 +73,33 @@ return (
             variant="outlined"
             name="dob"
           />
-           <FormLabel>Patient ID:</FormLabel>
+           <FormLabel>Insurance Carrier:</FormLabel>
           <TextField
-            value={inputs.patient_id}
+            value={inputs.insurance_carrier}
+            onChange={handleChange}
+            margin="normal"
+            fullWidth
+            variant="outlined"
+            name="insurance_carrier"
+          />
+          <FormLabel>Patient ID</FormLabel>
+          <TextField
+            value={inputs.patient_ID}
             onChange={handleChange}
             type="number"
             margin="normal"
             fullWidth
             variant="outlined"
-            name="patient_id"
+            name="patient_ID"
           />
-<FormLabel>Insurance</FormLabel>
+          <FormLabel>Health History:</FormLabel>
           <TextField
-            value={inputs.insurance}
+            value={inputs.health_history}
             onChange={handleChange}
             margin="normal"
             fullWidth
             variant="outlined"
-            name="insurance"
+            name="health_history"
           />
           <FormControlLabel
             control={

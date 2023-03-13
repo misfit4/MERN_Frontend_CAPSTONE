@@ -19,7 +19,7 @@ const getByID = async (req,res,next) =>{
     const id = req.params.id;
     let patient;
     try{
-        patient = await Patient.findByID(id);
+        patient = await Patient.findById(id);
     }catch(err){
         console.log(err);
     }
@@ -32,13 +32,13 @@ const getByID = async (req,res,next) =>{
 
 //add a vehicle to DB
 const addPatient = async (req,res,next) =>{
-    const{Name, DOB, insurance_provider, patient_ID, health_history} = req.body;
+    const{name, dob, insurance_carrier, patient_ID, health_history} = req.body;
     let patient;
     try{
         patient = new Patient({
-            Name,
-            DOB,
-            insurance_provider,
+            name,
+            dob,
+            insurance_carrier,
             patient_ID,
             health_history
         });
@@ -56,13 +56,13 @@ const addPatient = async (req,res,next) =>{
 //create function to Update a value
 const updatePatient = async (req,res,next) =>{
     const id = req.params.id;
-    const {Name, DOB, insurance_provider, patient_ID, health_history} = req.body;
+    const {name, dob, insurance_carrier, patient_ID, health_history} = req.body;
     let patient;
     try{
         patient = await Patient.findByIdAndUpdate(id,{
-            Name,
-            DOB,
-            insurance_provider,
+            name,
+            dob,
+            insurance_carrier,
             patient_ID,
             health_history
         });

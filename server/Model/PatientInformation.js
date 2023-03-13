@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PatientSchema = new Schema({
-    Name:{
+    name:{
         type: String,
         require: true,
     },
-    DOB:{
+    dob:{
         type: String,
         require: true,
     },
-    insurance_provider:{
+    insurance_carrier:{
         type: String,
         require: true,
     },
-    Patient_ID:{
+    patient_ID:{
         type: Number,
         require: true,
     },
